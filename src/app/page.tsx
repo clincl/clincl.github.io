@@ -557,11 +557,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Back to Top Button - Hidden on mobile since we have hamburger menu */}
+      {/* Back to Top Button - Now visible on all screen sizes */}
       {showBackToTop && (
         <button
           onClick={scrollToTop}
-          className="hidden md:flex fixed bottom-8 right-8 z-50 p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2"
+          className="fixed bottom-8 right-8 z-50 p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2"
           style={{
             backgroundColor: "var(--accent-primary)",
             color: "#ffffff",
