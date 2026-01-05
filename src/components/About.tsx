@@ -1,6 +1,38 @@
+"use client";
+
+import { useState } from "react";
 import { portfolioContent } from "@/data/content";
 
 export default function About() {
+  const [showCopied, setShowCopied] = useState(false);
+
+  const handleContactClick = (type: 'phone' | 'email') => {
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+    if (type === 'phone') {
+      if (isMobile) {
+        // Mobile: use tel: link
+        window.location.href = `tel:${portfolioContent.contact.phone}`;
+      } else {
+        // Desktop: copy to clipboard
+        navigator.clipboard.writeText(portfolioContent.contact.phone).then(() => {
+          setShowCopied(true);
+          setTimeout(() => setShowCopied(false), 2000);
+        });
+      }
+    } else if (type === 'email') {
+      if (isMobile) {
+        // Mobile: use mailto: link
+        window.location.href = `mailto:${portfolioContent.contact.email}`;
+      } else {
+        // Desktop: copy to clipboard
+        navigator.clipboard.writeText(portfolioContent.contact.email).then(() => {
+          setShowCopied(true);
+          setTimeout(() => setShowCopied(false), 2000);
+        });
+      }
+    }
+  };
   return (
     <section
       id="about"
@@ -225,9 +257,9 @@ export default function About() {
             </h3>
             <div className="grid md:grid-cols-2 gap-4">
               {/* Phone */}
-              <a
-                href={`tel:${portfolioContent.contact.phone}`}
-                className="block p-4 rounded-lg transition-all duration-200 hover:scale-105 cursor-pointer"
+              <button
+                onClick={() => handleContactClick('phone')}
+                className="block w-full p-4 rounded-lg transition-all duration-200 hover:scale-105 cursor-pointer relative"
                 style={{
                   backgroundColor: "var(--bg-accent)",
                   border: "1px solid var(--border-color)"
@@ -252,12 +284,17 @@ export default function About() {
                     </div>
                   </div>
                 </div>
-              </a>
+                {showCopied && (
+                  <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-green-500 text-white text-xs rounded">
+                    Copied!
+                  </div>
+                )}
+              </button>
 
               {/* Email */}
-              <a
-                href={`mailto:${portfolioContent.contact.email}`}
-                className="block p-4 rounded-lg transition-all duration-200 hover:scale-105 cursor-pointer"
+              <button
+                onClick={() => handleContactClick('email')}
+                className="block w-full p-4 rounded-lg transition-all duration-200 hover:scale-105 cursor-pointer relative"
                 style={{
                   backgroundColor: "var(--bg-accent)",
                   border: "1px solid var(--border-color)"
@@ -282,7 +319,12 @@ export default function About() {
                     </div>
                   </div>
                 </div>
-              </a>
+                {showCopied && (
+                  <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-green-500 text-white text-xs rounded">
+                    Copied!
+                  </div>
+                )}
+              </button>
             </div>
           </div>
 
