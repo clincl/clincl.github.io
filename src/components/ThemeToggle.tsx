@@ -8,8 +8,10 @@ export default function ThemeToggle() {
     // Check if we're in the browser environment
     if (typeof window !== 'undefined') {
       const savedTheme = localStorage.getItem('theme')
-      // Only use dark theme if explicitly saved, otherwise default to light
-      return savedTheme === 'dark'
+      // Check if dark theme is currently applied to document
+      const isCurrentlyDark = document.documentElement.classList.contains('dark-theme')
+      // Use dark theme if explicitly saved OR currently applied
+      return savedTheme === 'dark' || isCurrentlyDark
     }
     return false // Default to light theme on server
   })
