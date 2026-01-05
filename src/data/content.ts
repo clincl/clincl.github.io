@@ -279,6 +279,15 @@ export const portfolioContent = {
     ],
   },
 
+  // Contact Information (used in About component)
+  contact: {
+    title: "📞 Get In Touch",
+    email: "chuan.lin.cl@gmail.com",
+    phone: "347-463-1026",
+    linkedin: "https://linkedin.com/in/yourprofile",
+    github: "https://github.com/yourusername",
+  },
+
   // Tab Labels (used in main page.tsx)
   tabs: {
     about: "About",
@@ -286,9 +295,3 @@ export const portfolioContent = {
     resume: "Resume",
   },
 } as const;
-
-// Type exports for TypeScript
-export type PortfolioContent = typeof portfolioContent;
-export type SkillCategory = keyof typeof portfolioContent.skills.categories;
-export type Project = (typeof portfolioContent.projects.items)[0];
-export type Experience = (typeof portfolioContent.experience.roles)[0];

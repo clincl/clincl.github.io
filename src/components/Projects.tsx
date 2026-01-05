@@ -85,10 +85,10 @@ export default function Projects() {
                 </div>
 
                 <div className="p-6">
-                  {/* Horizontal Layout: Image | Technologies | Features | Buttons */}
-                  <div className="grid grid-cols-12 gap-6 items-start">
+                  {/* Mobile-First Layout: Stack vertically on mobile, horizontal on desktop */}
+                  <div className="space-y-6 lg:space-y-0 lg:grid lg:grid-cols-12 lg:gap-6 lg:items-start">
                     {/* Project Image */}
-                    <div className="col-span-3">
+                    <div className="lg:col-span-3">
                       <div
                         className="rounded-lg p-4 text-center transition-colors duration-300"
                         style={{ backgroundColor: "var(--bg-accent)" }}
@@ -104,7 +104,7 @@ export default function Projects() {
                     </div>
 
                     {/* Technologies */}
-                    <div className="col-span-3">
+                    <div className="lg:col-span-3">
                       <h6
                         className="font-semibold mb-3 transition-colors duration-300"
                         style={{ color: "var(--text-primary)" }}
@@ -128,7 +128,7 @@ export default function Projects() {
                     </div>
 
                     {/* Key Features */}
-                    <div className="col-span-4">
+                    <div className="lg:col-span-4">
                       <h6
                         className="font-semibold mb-3 transition-colors duration-300"
                         style={{ color: "var(--text-primary)" }}
@@ -155,10 +155,10 @@ export default function Projects() {
                     </div>
 
                     {/* Action Buttons */}
-                    <div className="col-span-2 flex flex-col gap-3">
+                    <div className="lg:col-span-2 flex flex-row lg:flex-col gap-3 justify-center lg:justify-start">
                       <a
                         href={project.links.github}
-                        className="px-3 py-2 rounded-lg text-center font-medium transition-colors duration-200 text-sm"
+                        className="px-4 py-2 rounded-lg text-center font-medium transition-colors duration-200 text-sm flex-1 lg:flex-none"
                         style={{
                           backgroundColor: "var(--accent-primary)",
                           color: "#ffffff",
@@ -168,7 +168,7 @@ export default function Projects() {
                       </a>
                       <a
                         href={`/projects/${project.id}`}
-                        className="px-3 py-2 rounded-lg text-center font-medium transition-colors duration-200 text-sm"
+                        className="px-4 py-2 rounded-lg text-center font-medium transition-colors duration-200 text-sm flex-1 lg:flex-none"
                         style={{
                           border: "1px solid var(--border-color)",
                           color: "var(--text-secondary)",
@@ -192,7 +192,7 @@ export default function Projects() {
           >
             {portfolioContent.technologies.title}
           </h3>
-          <div className="grid grid-cols-8 gap-2">
+          <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-2">
             {portfolioContent.technologies.items.map((tech, index) => (
               <div
                 key={tech.name}
