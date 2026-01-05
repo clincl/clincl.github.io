@@ -1,8 +1,10 @@
+import Navbar from "@/components/Navbar";
 import Projects from "@/components/Projects";
 
 export default function ProjectsPage() {
   return (
     <main className="min-h-screen">
+      <Navbar />
       <section
         className="py-20 transition-colors duration-300"
         style={{ backgroundColor: "var(--bg-secondary)" }}

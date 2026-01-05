@@ -310,8 +310,8 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right Side - Tabbed Content */}
-            <div className="lg:col-span-2">
+            {/* Right Side - Tabbed Content - Hidden on mobile */}
+            <div className="hidden lg:block lg:col-span-2">
               <div
                 className="rounded-xl shadow-lg overflow-hidden transition-colors duration-300"
                 style={{

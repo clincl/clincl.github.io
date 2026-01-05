@@ -1,6 +1,9 @@
+import Navbar from "@/components/Navbar";
+
 export default function ResumePage() {
   return (
     <main className="min-h-screen">
+      <Navbar />
       <section
         className="py-20 transition-colors duration-300"
         style={{ backgroundColor: "var(--bg-secondary)" }}
