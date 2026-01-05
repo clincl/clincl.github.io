@@ -320,9 +320,9 @@ export default function Home() {
                     "var(--shadow-color) 0 10px 15px -3px, var(--shadow-color) 0 4px 6px -2px",
                 }}
               >
-                {/* Tab Navigation */}
+                {/* Tab Navigation - Hidden on mobile since we have hamburger menu */}
                 <div
-                  className="flex border-b transition-colors duration-300"
+                  className="hidden md:flex border-b transition-colors duration-300"
                   style={{ borderBottomColor: "var(--border-color)" }}
                   role="tablist"
                   aria-label="Portfolio sections"
@@ -382,11 +382,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Back to Top Button */}
+      {/* Back to Top Button - Hidden on mobile since we have hamburger menu */}
       {showBackToTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2"
+          className="hidden md:flex fixed bottom-8 right-8 z-50 p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2"
           style={{
             backgroundColor: "var(--accent-primary)",
             color: "#ffffff",
