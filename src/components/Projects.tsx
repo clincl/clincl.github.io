@@ -84,11 +84,11 @@ export default function Projects() {
                   </p>
                 </div>
 
-                <div className="p-6">
-                  {/* Mobile-First Layout: Stack vertically on mobile, horizontal on desktop */}
-                  <div className="space-y-6 lg:space-y-0 lg:grid lg:grid-cols-12 lg:gap-6 lg:items-start">
-                    {/* Project Image */}
-                    <div className="lg:col-span-3">
+                <div className="p-4 sm:p-6">
+                  {/* Simplified Mobile Layout: Better spacing and organization */}
+                  <div className="space-y-4 sm:space-y-6 lg:space-y-0 lg:grid lg:grid-cols-12 lg:gap-6 lg:items-start">
+                    {/* Project Image - Hidden on mobile to save space */}
+                    <div className="hidden lg:block lg:col-span-3">
                       <div
                         className="rounded-lg p-4 text-center transition-colors duration-300"
                         style={{ backgroundColor: "var(--bg-accent)" }}
@@ -106,12 +106,12 @@ export default function Projects() {
                     {/* Technologies */}
                     <div className="lg:col-span-3">
                       <h6
-                        className="font-semibold mb-3 transition-colors duration-300"
+                        className="font-semibold mb-2 sm:mb-3 transition-colors duration-300 text-sm sm:text-base"
                         style={{ color: "var(--text-primary)" }}
                       >
-                        Technologies Used:
+                        Technologies:
                       </h6>
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-1.5 sm:gap-2">
                         {project.tech.map((tech, index) => (
                           <span
                             key={index}
@@ -130,12 +130,12 @@ export default function Projects() {
                     {/* Key Features */}
                     <div className="lg:col-span-4">
                       <h6
-                        className="font-semibold mb-3 transition-colors duration-300"
+                        className="font-semibold mb-2 sm:mb-3 transition-colors duration-300 text-sm sm:text-base"
                         style={{ color: "var(--text-primary)" }}
                       >
                         Key Features:
                       </h6>
-                      <ul className="space-y-2">
+                      <ul className="space-y-1.5 sm:space-y-2">
                         {project.features.map((feature, index) => (
                           <li
                             key={index}
@@ -143,22 +143,22 @@ export default function Projects() {
                             style={{ color: "var(--text-secondary)" }}
                           >
                             <span
-                              className="w-2 h-2 rounded-full mr-3 flex-shrink-0 mt-2"
+                              className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full mr-2 sm:mr-3 flex-shrink-0 mt-1.5 sm:mt-2"
                               style={{
                                 backgroundColor: "var(--accent-primary)",
                               }}
                             ></span>
-                            <span className="leading-tight">{feature}</span>
+                            <span className="leading-tight text-xs sm:text-sm">{feature}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
 
                     {/* Action Buttons */}
-                    <div className="lg:col-span-2 flex flex-row lg:flex-col gap-3 justify-center lg:justify-start">
+                    <div className="lg:col-span-2 flex flex-row gap-3 justify-center lg:justify-start lg:flex-col">
                       <a
                         href={project.links.github}
-                        className="px-4 py-2 rounded-lg text-center font-medium transition-colors duration-200 text-sm flex-1 lg:flex-none"
+                        className="px-3 sm:px-4 py-2 rounded-lg text-center font-medium transition-colors duration-200 text-xs sm:text-sm flex-1 lg:flex-none"
                         style={{
                           backgroundColor: "var(--accent-primary)",
                           color: "#ffffff",
@@ -168,7 +168,7 @@ export default function Projects() {
                       </a>
                       <a
                         href={`/projects/${project.id}`}
-                        className="px-4 py-2 rounded-lg text-center font-medium transition-colors duration-200 text-sm flex-1 lg:flex-none"
+                        className="px-3 sm:px-4 py-2 rounded-lg text-center font-medium transition-colors duration-200 text-xs sm:text-sm flex-1 lg:flex-none"
                         style={{
                           border: "1px solid var(--border-color)",
                           color: "var(--text-secondary)",
@@ -184,7 +184,8 @@ export default function Projects() {
           </div>
         </div>
 
-        {/* Technologies Section */}
+        {/* Technologies Section - Commented out as requested */}
+        {/*
         <div className="mt-16">
           <h3
             className="text-2xl font-bold mb-8 text-center transition-colors duration-300"
@@ -227,6 +228,7 @@ export default function Projects() {
             ))}
           </div>
         </div>
+        */}
       </div>
     </section>
   );
