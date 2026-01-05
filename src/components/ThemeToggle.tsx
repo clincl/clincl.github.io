@@ -8,8 +8,8 @@ export default function ThemeToggle() {
     // Check if we're in the browser environment
     if (typeof window !== 'undefined') {
       const savedTheme = localStorage.getItem('theme')
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-      return savedTheme === 'dark' || (!savedTheme && prefersDark)
+      // Only use dark theme if explicitly saved, otherwise default to light
+      return savedTheme === 'dark'
     }
     return false // Default to light theme on server
   })
@@ -29,8 +29,8 @@ export default function ThemeToggle() {
   useEffect(() => {
     // Always ensure we have exactly one theme class
     const savedTheme = localStorage.getItem('theme')
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-    const shouldBeDark = savedTheme === 'dark' || (!savedTheme && prefersDark)
+    // Only use dark theme if explicitly saved, otherwise default to light
+    const shouldBeDark = savedTheme === 'dark'
 
     // Remove any existing theme classes first
     document.documentElement.classList.remove('light-theme', 'dark-theme')
