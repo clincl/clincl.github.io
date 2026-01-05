@@ -193,7 +193,7 @@ export default function Home() {
 
       {/* Main Content Layout */}
       <section
-        className="py-20 transition-colors duration-300"
+        className="lg:py-20 py-0 transition-colors duration-300"
         style={{ backgroundColor: "var(--bg-secondary)" }}
       >
         <div className="max-w-7xl mx-auto px-6">
@@ -377,6 +377,56 @@ export default function Home() {
                   ))}
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Contact Section - Only visible on mobile after scrolling */}
+        <div id="contact" className="lg:hidden mt-8">
+          <div
+            className="rounded-xl shadow-lg p-6"
+            style={{
+              backgroundColor: "var(--card-bg)",
+              boxShadow:
+                "var(--shadow-color) 0 10px 15px -3px, var(--shadow-color) 0 4px 6px -2px",
+            }}
+          >
+            <h3
+              className="text-xl font-bold mb-6 text-center"
+              style={{ color: "var(--text-primary)" }}
+            >
+              Get In Touch
+            </h3>
+            <div className="space-y-4">
+              {/* Phone */}
+              <a
+                href="tel:347-463-1026"
+                className="flex items-center justify-center space-x-3 w-full px-4 py-3 rounded-lg transition-all duration-200 hover:scale-105"
+                style={{
+                  backgroundColor: "var(--contact-bg)",
+                  color: "var(--text-primary)"
+                }}
+              >
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                </svg>
+                <span className="font-medium">347-463-1026</span>
+              </a>
+
+              {/* Email */}
+              <a
+                href="mailto:chuan.lin.cl@gmail.com"
+                className="flex items-center justify-center space-x-3 w-full px-4 py-3 rounded-lg transition-all duration-200 hover:scale-105"
+                style={{
+                  backgroundColor: "var(--contact-bg)",
+                  color: "var(--text-primary)"
+                }}
+              >
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                </svg>
+                <span className="font-medium">chuan.lin.cl@gmail.com</span>
+              </a>
             </div>
           </div>
         </div>
