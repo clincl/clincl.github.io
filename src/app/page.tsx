@@ -398,9 +398,21 @@ export default function Home() {
               Get In Touch
             </h3>
             <form
-              action="https://formspree.io/f/xpznqryq"
-              method="POST"
               className="space-y-4"
+              onSubmit={(e) => {
+                e.preventDefault();
+                const formData = new FormData(e.target as HTMLFormElement);
+                const name = formData.get('name') as string;
+                const email = formData.get('email') as string;
+                const subject = formData.get('subject') as string;
+                const message = formData.get('message') as string;
+
+                const mailtoLink = `mailto:chuan.lin.cl@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+                  `Name: ${name}\nEmail: ${email}\n\n${message}`
+                )}`;
+
+                window.location.href = mailtoLink;
+              }}
             >
               <div>
                 <label
