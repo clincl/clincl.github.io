@@ -82,9 +82,18 @@ export default function Home() {
     return () => observer.disconnect();
   }, []);
 
-  // Handle URL hash for tab navigation
+  // Handle URL hash and query string for tab navigation (GitHub Pages support)
   useEffect(() => {
-    const handleHashChange = () => {
+    const handleNavigation = () => {
+      // Check for GitHub Pages query string routing (e.g., ?/projects/pantry-chef)
+      const query = window.location.search;
+      if (query.startsWith('?/')) {
+        const path = query.slice(2).split('&')[0]; // Remove '?/' and get the path
+        // Navigate to the actual route
+        window.history.replaceState(null, '', path + window.location.hash);
+      }
+
+      // Handle tab navigation
       const hash = window.location.hash.replace('#', '');
       if (hash && ['about', 'projects', 'resume'].includes(hash)) {
         setActiveTab(hash);
@@ -93,14 +102,14 @@ export default function Home() {
       }
     };
 
-    // Check initial hash
-    handleHashChange();
+    // Check initial navigation
+    handleNavigation();
 
     // Listen for hash changes
-    window.addEventListener('hashchange', handleHashChange);
+    window.addEventListener('hashchange', handleNavigation);
 
     return () => {
-      window.removeEventListener('hashchange', handleHashChange);
+      window.removeEventListener('hashchange', handleNavigation);
     };
   }, []);
 
