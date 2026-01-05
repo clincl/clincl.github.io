@@ -62,6 +62,7 @@ function LoadingSpinner() {
 export default function Home() {
   const [activeTab, setActiveTab] = useState("about");
   const [isDark, setIsDark] = useState(false);
+  const [showBackToTop, setShowBackToTop] = useState(false);
 
   // Watch for theme changes
   useEffect(() => {
@@ -112,6 +113,20 @@ export default function Home() {
       window.removeEventListener('hashchange', handleNavigation);
     };
   }, []);
+
+  // Handle back to top button visibility
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowBackToTop(window.scrollY > 300);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   const tabs = [
     { id: "about", label: "About", component: About },
@@ -366,6 +381,35 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Back to Top Button */}
+      {showBackToTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-8 right-8 z-50 p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2"
+          style={{
+            backgroundColor: "var(--accent-primary)",
+            color: "#ffffff",
+            boxShadow: "var(--shadow-color) 0 10px 15px -3px, var(--shadow-color) 0 4px 6px -2px",
+          }}
+          aria-label="Back to top"
+          title="Back to top"
+        >
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M5 10l7-7m0 0l7 7m-7-7v18"
+            />
+          </svg>
+        </button>
+      )}
     </main>
   );
 }
