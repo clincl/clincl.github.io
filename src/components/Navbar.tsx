@@ -62,18 +62,15 @@ export default function Navbar() {
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <div className="text-2xl font-bold">
-            <Link
-              href="/"
-              className="transition-colors duration-300 flex items-center"
-              style={{ color: 'var(--navbar-text)' }}
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="transition-colors duration-300"
             >
               <svg
-                width="32"
-                height="32"
+                width="48"
+                height="48"
                 viewBox="0 0 32 32"
                 fill="none"
-                className="mr-2"
-                style={{ color: 'var(--navbar-text)' }}
               >
                 <rect
                   x="4"
@@ -81,9 +78,9 @@ export default function Navbar() {
                   width="24"
                   height="24"
                   rx="4"
-                  stroke="currentColor"
+                  fill="#3b82f6"
+                  stroke="#3b82f6"
                   strokeWidth="2"
-                  fill="none"
                 />
                 <text
                   x="16"
@@ -91,14 +88,13 @@ export default function Navbar() {
                   textAnchor="middle"
                   fontSize="16"
                   fontWeight="bold"
-                  fill="currentColor"
+                  fill="white"
                   fontFamily="system-ui, sans-serif"
                 >
                   CL
                 </text>
               </svg>
-              <span className="hidden sm:inline">Chuan Lin</span>
-            </Link>
+            </button>
           </div>
 
           {/* Desktop Navigation Links */}
@@ -157,34 +153,23 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu Slide-out Panel */}
-      <div className={`md:hidden fixed top-0 right-0 h-full w-80 z-40 transform transition-transform duration-300 ease-in-out ${
-        isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-      }`} style={{ backgroundColor: 'var(--card-bg)' }}>
-        <div className="flex flex-col h-full">
-          {/* Header with close button */}
-          <div className="flex justify-between items-center p-6 border-b" style={{ borderColor: 'var(--border-color)' }}>
-            <h2 className="text-xl font-bold" style={{ color: 'var(--text-primary)' }}>Menu</h2>
-            <button
-              onClick={toggleMobileMenu}
-              className="p-2 rounded-lg transition-colors duration-200 hover:bg-opacity-20"
-              style={{ color: 'var(--text-primary)' }}
-              aria-label="Close menu"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
-
+      {/* Mobile Menu Dropdown */}
+      <div className={`md:hidden absolute top-full right-0 mt-2 w-64 z-40 transform transition-all duration-300 ease-in-out ${
+        isMobileMenuOpen ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 -translate-y-2 scale-95 pointer-events-none'
+      }`} style={{
+        backgroundColor: 'var(--card-bg)',
+        border: '1px solid var(--border-color)',
+        boxShadow: 'var(--shadow-color) 0 10px 15px -3px, var(--shadow-color) 0 4px 6px -2px'
+      }}>
+        <div className="py-2">
           {/* Navigation Links */}
-          <nav className="flex-1 px-6 py-8 space-y-4">
+          <nav className="space-y-1">
             <button
               onClick={() => scrollToSection('about')}
-              className="w-full text-left px-4 py-3 rounded-lg transition-all duration-200 hover:scale-105 font-medium"
+              className="w-full text-left px-4 py-3 transition-colors duration-200 font-medium hover:bg-opacity-10"
               style={{
                 color: 'var(--text-primary)',
-                backgroundColor: 'var(--bg-accent)'
+                backgroundColor: 'transparent'
               }}
             >
               About
@@ -192,10 +177,10 @@ export default function Navbar() {
 
             <button
               onClick={() => scrollToSection('projects')}
-              className="w-full text-left px-4 py-3 rounded-lg transition-all duration-200 hover:scale-105 font-medium"
+              className="w-full text-left px-4 py-3 transition-colors duration-200 font-medium hover:bg-opacity-10"
               style={{
                 color: 'var(--text-primary)',
-                backgroundColor: 'var(--bg-accent)'
+                backgroundColor: 'transparent'
               }}
             >
               Projects
@@ -203,10 +188,10 @@ export default function Navbar() {
 
             <button
               onClick={() => scrollToSection('resume')}
-              className="w-full text-left px-4 py-3 rounded-lg transition-all duration-200 hover:scale-105 font-medium"
+              className="w-full text-left px-4 py-3 transition-colors duration-200 font-medium hover:bg-opacity-10"
               style={{
                 color: 'var(--text-primary)',
-                backgroundColor: 'var(--bg-accent)'
+                backgroundColor: 'transparent'
               }}
             >
               Resume
@@ -214,10 +199,10 @@ export default function Navbar() {
 
             <button
               onClick={() => scrollToSection('contact')}
-              className="w-full text-left px-4 py-3 rounded-lg transition-all duration-200 hover:scale-105 font-medium"
+              className="w-full text-left px-4 py-3 transition-colors duration-200 font-medium hover:bg-opacity-10"
               style={{
                 color: 'var(--text-primary)',
-                backgroundColor: 'var(--bg-accent)'
+                backgroundColor: 'transparent'
               }}
             >
               Contact
@@ -226,13 +211,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu Backdrop */}
-      {isMobileMenuOpen && (
-        <div
-          className="md:hidden fixed inset-0 z-30 bg-black bg-opacity-50"
-          onClick={toggleMobileMenu}
-        />
-      )}
+
     </nav>
   )
 }

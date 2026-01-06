@@ -2,13 +2,6 @@
 // This file contains all text content for easy editing and maintenance
 
 export const portfolioContent = {
-  // Professional Summary (used in About component)
-  summary: {
-    title: "Professional Summary",
-    content:
-      "I'm a Software Engineer with nearly 4 years of experience at AWS with a background in technical support and full-stack engineering roles.",
-  },
-
   // Core Skills (used in About component)
   skills: {
     title: "Core Skills",
@@ -60,7 +53,7 @@ export const portfolioContent = {
         id: "aws-cse",
         title: "AWS Cloud Support Engineer",
         company: "Amazon Web Services",
-        period: "October 2022 - April 2024",
+        period: "January 2022 - April 2024",
         status: "Previous",
         logo: "/aws-logo.svg",
         description:
@@ -288,10 +281,4 @@ export const portfolioContent = {
     github: "https://github.com/yourusername",
   },
 
-  // Tab Labels (used in main page.tsx)
-  tabs: {
-    about: "About",
-    projects: "Projects",
-    resume: "Resume",
-  },
 } as const;

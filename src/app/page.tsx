@@ -233,51 +233,72 @@ export default function Home() {
 
               {/* Resume Section */}
               <section id="resume" className="scroll-mt-24">
-                <div className="p-8">
-                  <div className="max-w-6xl mx-auto">
-                    {/* Resume Header */}
-                    <div className="text-center mb-8">
-                      {/* Download Button */}
-                      <a
-                        href="/Chuan_Lin_Resume.pdf"
-                        download="Chuan_Lin_Resume.pdf"
-                        className="inline-flex items-center px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl mr-4"
+                <div
+                  className="rounded-xl shadow-lg overflow-hidden transition-colors duration-300"
+                  style={{
+                    backgroundColor: "var(--card-bg)",
+                    boxShadow:
+                      "var(--shadow-color) 0 10px 15px -3px, var(--shadow-color) 0 4px 6px -2px",
+                  }}
+                >
+                  <div className="p-8">
+                    <div className="max-w-6xl mx-auto">
+                      {/* Resume Header */}
+                      <div className="text-center mb-8">
+                        <h2
+                          className="text-3xl font-bold mb-4"
+                          style={{ color: "var(--text-primary)" }}
+                        >
+                          Resume
+                        </h2>
+                        <p
+                          className="text-lg max-w-2xl mx-auto mb-6"
+                          style={{ color: "var(--text-secondary)" }}
+                        >
+                          View my detailed professional experience and qualifications
+                        </p>
+                        {/* Download Button */}
+                        <a
+                          href="/Chuan_Lin_Resume.pdf"
+                          download="Chuan_Lin_Resume.pdf"
+                          className="inline-flex items-center px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                          style={{
+                            backgroundColor: "var(--accent-primary)",
+                            color: "#ffffff",
+                          }}
+                        >
+                          <svg
+                            className="w-5 h-5 mr-2"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                            />
+                          </svg>
+                          Download PDF
+                        </a>
+                      </div>
+
+                      {/* Resume Viewer */}
+                      <div
+                        className="rounded-xl overflow-hidden"
                         style={{
-                          backgroundColor: "var(--accent-primary)",
-                          color: "#ffffff",
+                          backgroundColor: "var(--bg-accent)",
+                          border: "1px solid var(--border-color)",
                         }}
                       >
-                        <svg
-                          className="w-5 h-5 mr-2"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                          />
-                        </svg>
-                        Download PDF
-                      </a>
-                    </div>
-
-                    {/* Resume Viewer */}
-                    <div
-                      className="rounded-xl shadow-lg overflow-hidden"
-                      style={{
-                        backgroundColor: "var(--card-bg)",
-                        border: "1px solid var(--border-color)",
-                      }}
-                    >
-                      <iframe
-                        src="/Chuan_Lin_Resume.pdf"
-                        className="w-full h-screen border-0"
-                        title="Chuan Lin Resume"
-                        loading="lazy"
-                      />
+                        <iframe
+                          src="/Chuan_Lin_Resume.pdf"
+                          className="w-full h-screen border-0"
+                          title="Chuan Lin Resume"
+                          loading="lazy"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -336,7 +357,7 @@ export default function Home() {
                           borderColor: "var(--border-color)",
                           color: "var(--text-primary)",
                         }}
-                        placeholder="Your name"
+                        placeholder="Enter your name"
                       />
                     </div>
 
@@ -359,7 +380,7 @@ export default function Home() {
                           borderColor: "var(--border-color)",
                           color: "var(--text-primary)",
                         }}
-                        placeholder="your.email@example.com"
+                        placeholder="Enter your email"
                       />
                     </div>
 
@@ -382,7 +403,7 @@ export default function Home() {
                           borderColor: "var(--border-color)",
                           color: "var(--text-primary)",
                         }}
-                        placeholder="What's this about?"
+                        placeholder="Enter your subject"
                       />
                     </div>
 
@@ -405,7 +426,7 @@ export default function Home() {
                           borderColor: "var(--border-color)",
                           color: "var(--text-primary)",
                         }}
-                        placeholder="Your message..."
+                        placeholder="Enter your message"
                       />
                     </div>
 

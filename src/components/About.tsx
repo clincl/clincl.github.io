@@ -14,24 +14,44 @@ export default function About() {
         </div>
 
         <div className="max-w-4xl mx-auto">
-          {/* Professional Summary */}
+          {/* Introduction */}
           <div
-            className="p-8 rounded-xl mb-8"
+            className="p-8 rounded-xl mb-2"
             style={{
               backgroundColor: "var(--card-bg)",
             }}
           >
-            <h3
-              className="text-2xl font-bold mb-6"
+            <p
+              className="text-lg leading-relaxed mb-6 font-light italic"
               style={{ color: "var(--text-primary)" }}
             >
-              {portfolioContent.summary.title}
+              Hey there! I'm Chuan, a software engineer at AWS. When I'm not coding, you'll find me climbing rocks or taking photos.
+            </p>
+
+            <h3
+              className="text-lg font-semibold mb-3"
+              style={{ color: "var(--text-primary)" }}
+            >
+              Experience
             </h3>
             <p
-              className="text-lg leading-relaxed mb-6"
+              className="text-base leading-relaxed mb-6"
               style={{ color: "var(--text-secondary)" }}
             >
-              {portfolioContent.summary.content}
+              I started on the database team at AWS, focusing on performance optimization and support, before transitioning to a full stack developer role. This journey has given me deep insights into how systems work from the ground up.
+            </p>
+
+            <h3
+              className="text-lg font-semibold mb-3"
+              style={{ color: "var(--text-primary)" }}
+            >
+              Outside of Work
+            </h3>
+            <p
+              className="text-base leading-relaxed"
+              style={{ color: "var(--text-secondary)" }}
+            >
+              In my free time, I enjoy bouldering, photography, and board games.
             </p>
           </div>
 
