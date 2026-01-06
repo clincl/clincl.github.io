@@ -28,14 +28,26 @@ export default function Projects() {
   const projects = portfolioContent.projects.items;
 
   return (
-    <section
-      id="projects"
-      className="py-20 transition-colors duration-300"
-      style={{ backgroundColor: "var(--bg-tertiary)" }}
-    >
-      <div className="max-w-6xl mx-auto px-6">
-        {/* Current Projects */}
-        <div className="mb-20">
+    <div className="p-8">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-12">
+          <h2
+            className="text-3xl font-bold mb-4"
+            style={{ color: "var(--text-primary)" }}
+          >
+            Projects
+          </h2>
+          <p
+            className="text-lg max-w-2xl mx-auto"
+            style={{ color: "var(--text-secondary)" }}
+          >
+            Explore my recent work and technical implementations
+          </p>
+        </div>
+
+        <div className="max-w-6xl mx-auto">
+          {/* Current Projects */}
+          <div className="mb-20">
           <div className="space-y-8">
             {projects.map((project) => (
               <div
@@ -229,7 +241,8 @@ export default function Projects() {
           </div>
         </div>
         */}
+        </div>
       </div>
-    </section>
+    </div>
   );
 }

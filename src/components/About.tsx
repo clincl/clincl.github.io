@@ -2,12 +2,23 @@ import { portfolioContent } from "@/data/content";
 
 export default function About() {
   return (
-    <section
-      id="about"
-      className="py-20"
-      style={{ backgroundColor: "var(--bg-secondary)" }}
-    >
-      <div className="max-w-6xl mx-auto px-6">
+    <div className="p-8">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-12">
+          <h2
+            className="text-3xl font-bold mb-4"
+            style={{ color: "var(--text-primary)" }}
+          >
+            About
+          </h2>
+          <p
+            className="text-lg max-w-2xl mx-auto"
+            style={{ color: "var(--text-secondary)" }}
+          >
+            Learn more about my background, skills, and professional journey
+          </p>
+        </div>
+
         <div className="max-w-4xl mx-auto">
           {/* Professional Summary */}
           <div
@@ -228,6 +239,6 @@ export default function About() {
           </div> */}
         </div>
       </div>
-    </section>
+    </div>
   );
 }
