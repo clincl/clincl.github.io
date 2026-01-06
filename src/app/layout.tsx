@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
-import { DotGothic16, Space_Mono } from "next/font/google";
+import { Instrument_Sans, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const dotGothic16 = DotGothic16({
+const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
-  weight: ["400"],
-  variable: "--font-dot-gothic",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-instrument-sans",
 });
 
-const spaceMono = Space_Mono({
+const geistMono = Geist_Mono({
   subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-space-mono",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-geist-mono",
 });
 
 export const metadata: Metadata = {
