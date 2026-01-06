@@ -71,9 +71,47 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Navigation Links */}
+          {/* Desktop Navigation Links */}
           <div className="hidden md:flex space-x-8">
-            {/* Contact information is now visible on the main page */}
+            <button
+              onClick={() => scrollToSection('home')}
+              className="transition-colors duration-300 font-medium hover:opacity-80"
+              style={{ color: 'var(--navbar-text)' }}
+            >
+              Home
+            </button>
+
+            <button
+              onClick={() => scrollToSection('about')}
+              className="transition-colors duration-300 font-medium hover:opacity-80"
+              style={{ color: 'var(--navbar-text)' }}
+            >
+              About
+            </button>
+
+            <button
+              onClick={() => scrollToSection('projects')}
+              className="transition-colors duration-300 font-medium hover:opacity-80"
+              style={{ color: 'var(--navbar-text)' }}
+            >
+              Projects
+            </button>
+
+            <button
+              onClick={() => scrollToSection('resume')}
+              className="transition-colors duration-300 font-medium hover:opacity-80"
+              style={{ color: 'var(--navbar-text)' }}
+            >
+              Resume
+            </button>
+
+            <button
+              onClick={() => scrollToSection('contact')}
+              className="transition-colors duration-300 font-medium hover:opacity-80"
+              style={{ color: 'var(--navbar-text)' }}
+            >
+              Contact
+            </button>
           </div>
 
           {/* Theme Toggle & Mobile Menu */}
@@ -97,91 +135,92 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 z-40" style={{ backgroundColor: 'var(--bg-overlay)' }}>
-          <div className="flex flex-col items-center justify-center min-h-screen px-6">
-            <div
-              className="w-full max-w-sm rounded-xl shadow-lg p-6 space-y-6"
+      {/* Mobile Menu Slide-out Panel */}
+      <div className={`md:hidden fixed top-0 right-0 h-full w-80 z-40 transform transition-transform duration-300 ease-in-out ${
+        isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+      }`} style={{ backgroundColor: 'var(--card-bg)' }}>
+        <div className="flex flex-col h-full">
+          {/* Header with close button */}
+          <div className="flex justify-between items-center p-6 border-b" style={{ borderColor: 'var(--border-color)' }}>
+            <h2 className="text-xl font-bold" style={{ color: 'var(--text-primary)' }}>Menu</h2>
+            <button
+              onClick={toggleMobileMenu}
+              className="p-2 rounded-lg transition-colors duration-200 hover:bg-opacity-20"
+              style={{ color: 'var(--text-primary)' }}
+              aria-label="Close menu"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Navigation Links */}
+          <nav className="flex-1 px-6 py-8 space-y-4">
+            <button
+              onClick={() => scrollToSection('home')}
+              className="w-full text-left px-4 py-3 rounded-lg transition-all duration-200 hover:scale-105 font-medium"
               style={{
-                backgroundColor: 'var(--card-bg)',
-                boxShadow: 'var(--shadow-color) 0 20px 25px -5px, var(--shadow-color) 0 10px 10px -5px'
+                color: 'var(--text-primary)',
+                backgroundColor: 'var(--bg-accent)'
               }}
             >
-              {/* Close Button */}
-              <div className="flex justify-end">
-                <button
-                  onClick={toggleMobileMenu}
-                  className="p-2 rounded-lg transition-colors duration-200 hover:bg-opacity-20"
-                  style={{ color: 'var(--text-primary)' }}
-                  aria-label="Close menu"
-                >
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-              </div>
+              Home
+            </button>
 
-              {/* Navigation Links */}
-              <nav className="space-y-4">
-                <button
-                  onClick={() => scrollToSection('home')}
-                  className="w-full text-left px-4 py-3 rounded-lg transition-all duration-200 hover:scale-105 font-medium"
-                  style={{
-                    color: 'var(--text-primary)',
-                    backgroundColor: 'var(--bg-accent)'
-                  }}
-                >
-                  Home
-                </button>
+            <button
+              onClick={() => scrollToSection('about')}
+              className="w-full text-left px-4 py-3 rounded-lg transition-all duration-200 hover:scale-105 font-medium"
+              style={{
+                color: 'var(--text-primary)',
+                backgroundColor: 'var(--bg-accent)'
+              }}
+            >
+              About
+            </button>
 
-                <button
-                  onClick={() => scrollToSection('about')}
-                  className="w-full text-left px-4 py-3 rounded-lg transition-all duration-200 hover:scale-105 font-medium"
-                  style={{
-                    color: 'var(--text-primary)',
-                    backgroundColor: 'var(--bg-accent)'
-                  }}
-                >
-                  About
-                </button>
+            <button
+              onClick={() => scrollToSection('projects')}
+              className="w-full text-left px-4 py-3 rounded-lg transition-all duration-200 hover:scale-105 font-medium"
+              style={{
+                color: 'var(--text-primary)',
+                backgroundColor: 'var(--bg-accent)'
+              }}
+            >
+              Projects
+            </button>
 
-                <button
-                  onClick={() => scrollToSection('projects')}
-                  className="w-full text-left px-4 py-3 rounded-lg transition-all duration-200 hover:scale-105 font-medium"
-                  style={{
-                    color: 'var(--text-primary)',
-                    backgroundColor: 'var(--bg-accent)'
-                  }}
-                >
-                  Projects
-                </button>
+            <button
+              onClick={() => scrollToSection('resume')}
+              className="w-full text-left px-4 py-3 rounded-lg transition-all duration-200 hover:scale-105 font-medium"
+              style={{
+                color: 'var(--text-primary)',
+                backgroundColor: 'var(--bg-accent)'
+              }}
+            >
+              Resume
+            </button>
 
-                <button
-                  onClick={() => scrollToSection('resume')}
-                  className="w-full text-left px-4 py-3 rounded-lg transition-all duration-200 hover:scale-105 font-medium"
-                  style={{
-                    color: 'var(--text-primary)',
-                    backgroundColor: 'var(--bg-accent)'
-                  }}
-                >
-                  Resume
-                </button>
-
-                <button
-                  onClick={() => scrollToSection('contact')}
-                  className="w-full text-left px-4 py-3 rounded-lg transition-all duration-200 hover:scale-105 font-medium"
-                  style={{
-                    color: 'var(--text-primary)',
-                    backgroundColor: 'var(--bg-accent)'
-                  }}
-                >
-                  Contact
-                </button>
-              </nav>
-            </div>
-          </div>
+            <button
+              onClick={() => scrollToSection('contact')}
+              className="w-full text-left px-4 py-3 rounded-lg transition-all duration-200 hover:scale-105 font-medium"
+              style={{
+                color: 'var(--text-primary)',
+                backgroundColor: 'var(--bg-accent)'
+              }}
+            >
+              Contact
+            </button>
+          </nav>
         </div>
+      </div>
+
+      {/* Mobile Menu Backdrop */}
+      {isMobileMenuOpen && (
+        <div
+          className="md:hidden fixed inset-0 z-30 bg-black bg-opacity-50"
+          onClick={toggleMobileMenu}
+        />
       )}
     </nav>
   )
