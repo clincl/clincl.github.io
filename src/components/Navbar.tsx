@@ -133,72 +133,57 @@ export default function Navbar() {
               <nav className="space-y-4">
                 <button
                   onClick={() => navigateToPage('home')}
-                  className="w-full text-left px-4 py-3 rounded-lg transition-all duration-200 hover:scale-105"
+                  className="w-full text-left px-4 py-3 rounded-lg transition-all duration-200 hover:scale-105 font-medium"
                   style={{
                     color: 'var(--text-primary)',
                     backgroundColor: 'var(--bg-accent)'
                   }}
                 >
-                  <div className="flex items-center space-x-3">
-                    <span className="text-lg">🏠</span>
-                    <span className="font-medium">Home</span>
-                  </div>
+                  Home
                 </button>
 
                 <button
                   onClick={() => navigateToPage('about')}
-                  className="w-full text-left px-4 py-3 rounded-lg transition-all duration-200 hover:scale-105"
+                  className="w-full text-left px-4 py-3 rounded-lg transition-all duration-200 hover:scale-105 font-medium"
                   style={{
                     color: 'var(--text-primary)',
                     backgroundColor: 'var(--bg-accent)'
                   }}
                 >
-                  <div className="flex items-center space-x-3">
-                    <span className="text-lg">👨‍💻</span>
-                    <span className="font-medium">About</span>
-                  </div>
+                  About
                 </button>
 
                 <button
                   onClick={() => navigateToPage('projects')}
-                  className="w-full text-left px-4 py-3 rounded-lg transition-all duration-200 hover:scale-105"
+                  className="w-full text-left px-4 py-3 rounded-lg transition-all duration-200 hover:scale-105 font-medium"
                   style={{
                     color: 'var(--text-primary)',
                     backgroundColor: 'var(--bg-accent)'
                   }}
                 >
-                  <div className="flex items-center space-x-3">
-                    <span className="text-lg">🚀</span>
-                    <span className="font-medium">Projects</span>
-                  </div>
+                  Projects
                 </button>
 
                 <button
                   onClick={() => navigateToPage('resume')}
-                  className="w-full text-left px-4 py-3 rounded-lg transition-all duration-200 hover:scale-105"
+                  className="w-full text-left px-4 py-3 rounded-lg transition-all duration-200 hover:scale-105 font-medium"
                   style={{
                     color: 'var(--text-primary)',
                     backgroundColor: 'var(--bg-accent)'
                   }}
                 >
-                  <div className="flex items-center space-x-3">
-                    <span className="text-lg">📄</span>
-                    <span className="font-medium">Resume</span>
-                  </div>
+                  Resume
                 </button>
 
                 <button
                   onClick={() => navigateToPage('contact')}
-                  className="w-full text-left px-4 py-3 rounded-lg transition-all duration-200 hover:scale-105"
+                  className="w-full text-left px-4 py-3 rounded-lg transition-all duration-200 hover:scale-105 font-medium"
                   style={{
                     color: 'var(--text-primary)',
                     backgroundColor: 'var(--bg-accent)'
                   }}
                 >
-                  <div className="flex items-center space-x-3">
-                    <span className="text-lg">📧</span>
-                    <span className="font-medium">Contact</span>
-                  </div>
+                  Contact
                 </button>
               </nav>
             </div>
