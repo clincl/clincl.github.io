@@ -5,12 +5,10 @@ import { useEffect, useState } from 'react'
 type ThemeState = 'light' | 'dark'
 
 export default function ThemeToggle() {
-  const [themeState, setThemeState] = useState<ThemeState>(() => {
-    // Check document state immediately (script in head has already applied theme)
-    return document.documentElement.classList.contains('dark-theme') ? 'dark' : 'light'
-  })
+  const [themeState, setThemeState] = useState<ThemeState>('light')
+  const [mounted, setMounted] = useState(false)
 
-  // Apply theme on mount (ensure it's correct)
+  // Apply theme on mount and sync state
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme')
     const shouldBeDark = savedTheme === 'dark'
@@ -19,10 +17,19 @@ export default function ThemeToggle() {
     document.documentElement.classList.remove('light-theme', 'dark-theme')
     if (shouldBeDark) {
       document.documentElement.classList.add('dark-theme')
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      setThemeState('dark')
     } else {
       document.documentElement.classList.add('light-theme')
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      setThemeState('light')
     }
+
+    setMounted(true)
   }, [])
+
+  // Don't render on server to avoid hydration mismatch
+  if (!mounted) return null
 
   const toggleTheme = () => {
     const newIsDark = themeState === 'dark'
