@@ -1,14 +1,10 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Link from 'next/link'
-import { useRouter } from 'next/navigation'
 import ThemeToggle from './ThemeToggle'
 
 export default function Navbar() {
-  const router = useRouter()
   const [isScrolled, setIsScrolled] = useState(false)
-  const [isDark, setIsDark] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
@@ -17,25 +13,6 @@ export default function Navbar() {
     }
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  // Watch for theme changes
-  useEffect(() => {
-    const checkTheme = () => {
-      setIsDark(document.documentElement.classList.contains('dark-theme'))
-    }
-
-    // Check initial theme
-    checkTheme()
-
-    // Watch for theme changes
-    const observer = new MutationObserver(checkTheme)
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['class']
-    })
-
-    return () => observer.disconnect()
   }, [])
 
   const scrollToSection = (sectionId: string) => {

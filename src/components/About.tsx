@@ -25,33 +25,25 @@ export default function About() {
               className="text-lg leading-relaxed mb-6 font-light italic"
               style={{ color: "var(--text-primary)" }}
             >
-              Hey there! I'm Chuan, a software engineer at AWS. When I'm not coding, you'll find me climbing rocks or taking photos.
+              Hey there! I'm Chuan, a software engineer at AWS. When I'm not
+              coding, you'll find me climbing rocks or taking photos.
             </p>
 
-            <h3
-              className="text-lg font-semibold mb-3"
-              style={{ color: "var(--text-primary)" }}
-            >
-              Experience
-            </h3>
             <p
               className="text-base leading-relaxed mb-6"
               style={{ color: "var(--text-secondary)" }}
             >
-              I started on the database team at AWS, focusing on performance optimization and support, before transitioning to a full stack developer role. This journey has given me deep insights into how systems work from the ground up.
+              I started my career as a Cloud Support Associate/Engineer on the
+              database team at AWS before transitioning to my latest role as a
+              full-stack developer at AWS, where I worked with React,
+              Typescript, Node.JS, and Python.
             </p>
 
-            <h3
-              className="text-lg font-semibold mb-3"
-              style={{ color: "var(--text-primary)" }}
-            >
-              Outside of Work
-            </h3>
             <p
               className="text-base leading-relaxed"
               style={{ color: "var(--text-secondary)" }}
             >
-              In my free time, I enjoy bouldering, photography, and board games.
+              Outside of work, I enjoy bouldering, photography, and board games.
             </p>
           </div>
 
@@ -78,7 +70,10 @@ export default function About() {
 
               <div className="space-y-8">
                 {portfolioContent.experience.roles.map((role, index) => (
-                  <div key={role.id} className="relative flex items-start space-x-6">
+                  <div
+                    key={role.id}
+                    className="relative flex items-start space-x-6"
+                  >
                     <div
                       className="relative z-10 w-10 h-10 rounded-full flex items-center justify-center shadow-lg border-2"
                       style={{
@@ -97,7 +92,11 @@ export default function About() {
                         src={role.logo}
                         alt={role.company}
                         className="w-6 h-6"
-                        style={{ filter: role.logo.includes("aws") ? "var(--aws-logo-filter, none)" : "none" }}
+                        style={{
+                          filter: role.logo.includes("aws")
+                            ? "var(--aws-logo-filter, none)"
+                            : "none",
+                        }}
                       />
                     </div>
                     <div className="flex-1 pb-8">
@@ -120,7 +119,10 @@ export default function About() {
                           </span>
                         )}
                       </div>
-                      <p className="mb-3" style={{ color: "var(--text-muted)" }}>
+                      <p
+                        className="mb-3"
+                        style={{ color: "var(--text-muted)" }}
+                      >
                         {role.period}
                       </p>
                       <p
@@ -133,7 +135,10 @@ export default function About() {
                       {/* Achievements */}
                       {role.achievements && role.achievements.length > 0 && (
                         <div className="mb-4">
-                          <h5 className="font-semibold mb-2" style={{ color: "var(--text-primary)" }}>
+                          <h5
+                            className="font-semibold mb-2"
+                            style={{ color: "var(--text-primary)" }}
+                          >
                             Key Achievements:
                           </h5>
                           <ul className="space-y-1">
@@ -145,7 +150,9 @@ export default function About() {
                               >
                                 <span
                                   className="w-1.5 h-1.5 rounded-full mr-3 flex-shrink-0 mt-2"
-                                  style={{ backgroundColor: "var(--accent-primary)" }}
+                                  style={{
+                                    backgroundColor: "var(--accent-primary)",
+                                  }}
                                 ></span>
                                 {achievement}
                               </li>
@@ -157,7 +164,10 @@ export default function About() {
                       {/* Technologies */}
                       {role.technologies && role.technologies.length > 0 && (
                         <div>
-                          <h5 className="font-semibold mb-2" style={{ color: "var(--text-primary)" }}>
+                          <h5
+                            className="font-semibold mb-2"
+                            style={{ color: "var(--text-primary)" }}
+                          >
                             Technologies:
                           </h5>
                           <div className="flex flex-wrap gap-2">
@@ -182,25 +192,6 @@ export default function About() {
               </div>
             </div>
           </div>
-
-
-
-          {/* Interests */}
-          {/* <div
-            className="p-8 rounded-xl shadow-lg"
-            style={{
-              backgroundColor: "var(--card-bg)",
-              boxShadow:
-                "var(--shadow-color) 0 10px 15px -3px, var(--shadow-color) 0 4px 6px -2px",
-            }}
-          >
-            <h3
-              className="text-2xl font-bold mb-6"
-              style={{ color: "var(--text-primary)" }}
-            >
-              Beyond Code
-            </h3>
-          </div> */}
         </div>
       </div>
     </div>
