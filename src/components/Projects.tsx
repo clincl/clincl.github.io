@@ -105,7 +105,6 @@ export default function Projects() {
                         className="rounded-lg p-4 text-center transition-colors duration-300"
                         style={{ backgroundColor: "var(--bg-accent)" }}
                       >
-                        <div className="text-4xl mb-2">🚀</div>
                         <div
                           className="text-sm transition-colors duration-300"
                           style={{ color: "var(--text-muted)" }}

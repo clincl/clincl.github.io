@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Poppins, Fira_Code } from "next/font/google";
+import { Lato, Fira_Code } from "next/font/google";
 import "./globals.css";
 
-const poppins = Poppins({
+const lato = Lato({
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  variable: "--font-poppins",
+  weight: ["300", "400", "700"],
+  variable: "--font-lato",
 });
 
 const firaCode = Fira_Code({
