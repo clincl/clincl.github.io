@@ -60,59 +60,7 @@ function LoadingSpinner() {
 }
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState("about");
-  const [isDark, setIsDark] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
-
-  // Watch for theme changes
-  useEffect(() => {
-    const checkTheme = () => {
-      setIsDark(document.documentElement.classList.contains("dark-theme"));
-    };
-
-    // Check initial theme
-    checkTheme();
-
-    // Watch for theme changes
-    const observer = new MutationObserver(checkTheme);
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
-  // Handle URL hash and query string for tab navigation (GitHub Pages support)
-  useEffect(() => {
-    const handleNavigation = () => {
-      // Check for GitHub Pages query string routing (e.g., ?/projects/pantry-chef)
-      const query = window.location.search;
-      if (query.startsWith('?/')) {
-        const path = query.slice(2).split('&')[0]; // Remove '?/' and get the path
-        // Navigate to the actual route
-        window.history.replaceState(null, '', path + window.location.hash);
-      }
-
-      // Handle tab navigation
-      const hash = window.location.hash.replace('#', '');
-      if (hash && ['about', 'projects', 'resume'].includes(hash)) {
-        setActiveTab(hash);
-        // Scroll to top of page to ensure tabs are visible
-        window.scrollTo({ top: 0, behavior: 'instant' });
-      }
-    };
-
-    // Check initial navigation
-    handleNavigation();
-
-    // Listen for hash changes
-    window.addEventListener('hashchange', handleNavigation);
-
-    return () => {
-      window.removeEventListener('hashchange', handleNavigation);
-    };
-  }, []);
 
   // Handle back to top button visibility
   useEffect(() => {
@@ -120,72 +68,13 @@ export default function Home() {
       setShowBackToTop(window.scrollY > 300);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
-
-  const tabs = [
-    { id: "about", label: "About", component: About },
-    { id: "projects", label: "Projects", component: Projects },
-    {
-      id: "resume",
-      label: "Resume",
-      component: () => (
-        <div className="p-8">
-          <div className="max-w-6xl mx-auto">
-            {/* Resume Header */}
-            <div className="text-center mb-8">
-              {/* Download Button */}
-              <a
-                href="/Chuan_Lin_Resume.pdf"
-                download="Chuan_Lin_Resume.pdf"
-                className="inline-flex items-center px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl mr-4"
-                style={{
-                  backgroundColor: "var(--accent-primary)",
-                  color: "#ffffff",
-                }}
-              >
-                <svg
-                  className="w-5 h-5 mr-2"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                  />
-                </svg>
-                Download PDF
-              </a>
-            </div>
-
-            {/* Resume Viewer */}
-            <div
-              className="rounded-xl shadow-lg overflow-hidden"
-              style={{
-                backgroundColor: "var(--card-bg)",
-                border: "1px solid var(--border-color)",
-              }}
-            >
-              <iframe
-                src="/Chuan_Lin_Resume.pdf"
-                className="w-full h-screen border-0"
-                title="Chuan Lin Resume"
-                loading="lazy"
-              />
-            </div>
-          </div>
-        </div>
-      ),
-    },
-  ];
 
   return (
     <main className="min-h-screen">
@@ -275,7 +164,9 @@ export default function Home() {
                     </a>
 
                     <button
-                      onClick={() => window.location.href = 'tel:347-463-1026'}
+                      onClick={() =>
+                        (window.location.href = "tel:347-463-1026")
+                      }
                       className="flex items-center justify-center p-3 rounded-lg transition-all duration-200 group hover:scale-110"
                       style={{ backgroundColor: "var(--contact-bg)" }}
                       title="Phone: 347-463-1026"
@@ -290,7 +181,9 @@ export default function Home() {
                     </button>
 
                     <button
-                      onClick={() => window.location.href = 'mailto:chuan.lin.cl@gmail.com'}
+                      onClick={() =>
+                        (window.location.href = "mailto:chuan.lin.cl@gmail.com")
+                      }
                       className="flex items-center justify-center p-3 rounded-lg transition-all duration-200 group hover:scale-110"
                       style={{ backgroundColor: "var(--contact-bg)" }}
                       title="Email: chuan.lin.cl@gmail.com"
@@ -304,84 +197,270 @@ export default function Home() {
                       </svg>
                     </button>
                   </div>
-
-
                 </div>
               </div>
             </div>
 
-            {/* Right Side - Tabbed Content - Hidden on mobile */}
-            <div className="hidden lg:block lg:col-span-2">
-              <div
-                className="rounded-xl shadow-lg overflow-hidden transition-colors duration-300"
-                style={{
-                  backgroundColor: "var(--card-bg)",
-                  boxShadow:
-                    "var(--shadow-color) 0 10px 15px -3px, var(--shadow-color) 0 4px 6px -2px",
-                }}
-              >
-                {/* Tab Navigation - Hidden on mobile since we have hamburger menu */}
+            {/* Right Side - Scrolling Sections */}
+            <div className="lg:col-span-2 space-y-12">
+              {/* About Section */}
+              <section id="about" className="scroll-mt-24">
                 <div
-                  className="hidden md:flex border-b transition-colors duration-300"
-                  style={{ borderBottomColor: "var(--border-color)" }}
-                  role="tablist"
-                  aria-label="Portfolio sections"
+                  className="rounded-xl shadow-lg overflow-hidden transition-colors duration-300"
+                  style={{
+                    backgroundColor: "var(--card-bg)",
+                    boxShadow:
+                      "var(--shadow-color) 0 10px 15px -3px, var(--shadow-color) 0 4px 6px -2px",
+                  }}
                 >
-                  {tabs.map((tab) => (
-                    <button
-                      key={tab.id}
-                      onClick={() => setActiveTab(tab.id)}
-                      className="flex-1 py-4 px-6 text-center font-medium transition-colors duration-200 focus:outline-none"
-                      style={{
-                        color:
-                          activeTab === tab.id
-                            ? "var(--text-primary)"
-                            : "var(--text-secondary)",
-                        borderBottom:
-                          activeTab === tab.id
-                            ? "3px solid var(--accent-primary)"
-                            : "none",
-                        backgroundColor:
-                          activeTab === tab.id
-                            ? "var(--tab-active-bg)"
-                            : "transparent",
-                        fontWeight: activeTab === tab.id ? "600" : "500",
-                      }}
-                      role="tab"
-                      aria-selected={activeTab === tab.id}
-                      aria-controls={`panel-${tab.id}`}
-                      id={`tab-${tab.id}`}
-                      tabIndex={activeTab === tab.id ? 0 : -1}
-                    >
-                      {tab.label}
-                    </button>
-                  ))}
+                  <About />
                 </div>
+              </section>
 
-                {/* Tab Content */}
+              {/* Projects Section */}
+              <section id="projects" className="scroll-mt-24">
                 <div
-                  className="relative transition-colors duration-300"
-                  style={{ backgroundColor: "var(--bg-tertiary)" }}
+                  className="rounded-xl shadow-lg overflow-hidden transition-colors duration-300"
+                  style={{
+                    backgroundColor: "var(--card-bg)",
+                    boxShadow:
+                      "var(--shadow-color) 0 10px 15px -3px, var(--shadow-color) 0 4px 6px -2px",
+                  }}
                 >
-                  {tabs.map((tab) => (
-                    <div
-                      key={tab.id}
-                      className={`transition-all duration-500 ease-in-out ${
-                        activeTab === tab.id
-                          ? "opacity-100 translate-x-0"
-                          : "opacity-0 translate-x-4 pointer-events-none absolute inset-0"
-                      }`}
-                    >
-                      <tab.component />
-                    </div>
-                  ))}
+                  <Projects />
                 </div>
-              </div>
+              </section>
+
+              {/* Resume Section */}
+              <section id="resume" className="scroll-mt-24">
+                <div className="p-8">
+                  <div className="max-w-6xl mx-auto">
+                    {/* Resume Header */}
+                    <div className="text-center mb-8">
+                      {/* Download Button */}
+                      <a
+                        href="/Chuan_Lin_Resume.pdf"
+                        download="Chuan_Lin_Resume.pdf"
+                        className="inline-flex items-center px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl mr-4"
+                        style={{
+                          backgroundColor: "var(--accent-primary)",
+                          color: "#ffffff",
+                        }}
+                      >
+                        <svg
+                          className="w-5 h-5 mr-2"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                          />
+                        </svg>
+                        Download PDF
+                      </a>
+                    </div>
+
+                    {/* Resume Viewer */}
+                    <div
+                      className="rounded-xl shadow-lg overflow-hidden"
+                      style={{
+                        backgroundColor: "var(--card-bg)",
+                        border: "1px solid var(--border-color)",
+                      }}
+                    >
+                      <iframe
+                        src="/Chuan_Lin_Resume.pdf"
+                        className="w-full h-screen border-0"
+                        title="Chuan Lin Resume"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* Contact Section */}
+              <section id="contact" className="scroll-mt-24">
+                <div
+                  className="rounded-xl shadow-lg p-8"
+                  style={{
+                    backgroundColor: "var(--card-bg)",
+                    boxShadow:
+                      "var(--shadow-color) 0 10px 15px -3px, var(--shadow-color) 0 4px 6px -2px",
+                  }}
+                >
+                  <h2
+                    className="text-2xl font-bold mb-6"
+                    style={{ color: "var(--text-primary)" }}
+                  >
+                    Get In Touch
+                  </h2>
+
+                  <form
+                    onSubmit={(e) => {
+                      e.preventDefault()
+                      const formData = new FormData(e.target as HTMLFormElement)
+                      const name = formData.get('name') as string
+                      const email = formData.get('email') as string
+                      const subject = formData.get('subject') as string
+                      const message = formData.get('message') as string
+
+                      const mailtoLink = `mailto:chuan.lin.cl@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+                        `Name: ${name}\nEmail: ${email}\n\n${message}`
+                      )}`
+
+                      window.location.href = mailtoLink
+                    }}
+                    className="space-y-6"
+                  >
+                    <div>
+                      <label
+                        htmlFor="name"
+                        className="block text-sm font-medium mb-2"
+                        style={{ color: "var(--text-secondary)" }}
+                      >
+                        Name
+                      </label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        required
+                        className="w-full px-4 py-3 rounded-lg border transition-colors duration-200 focus:outline-none focus:ring-2"
+                        style={{
+                          backgroundColor: "var(--bg-accent)",
+                          borderColor: "var(--border-color)",
+                          color: "var(--text-primary)",
+                        }}
+                        placeholder="Your name"
+                      />
+                    </div>
+
+                    <div>
+                      <label
+                        htmlFor="email"
+                        className="block text-sm font-medium mb-2"
+                        style={{ color: "var(--text-secondary)" }}
+                      >
+                        Email
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                        className="w-full px-4 py-3 rounded-lg border transition-colors duration-200 focus:outline-none focus:ring-2"
+                        style={{
+                          backgroundColor: "var(--bg-accent)",
+                          borderColor: "var(--border-color)",
+                          color: "var(--text-primary)",
+                        }}
+                        placeholder="your.email@example.com"
+                      />
+                    </div>
+
+                    <div>
+                      <label
+                        htmlFor="subject"
+                        className="block text-sm font-medium mb-2"
+                        style={{ color: "var(--text-secondary)" }}
+                      >
+                        Subject
+                      </label>
+                      <input
+                        type="text"
+                        id="subject"
+                        name="subject"
+                        required
+                        className="w-full px-4 py-3 rounded-lg border transition-colors duration-200 focus:outline-none focus:ring-2"
+                        style={{
+                          backgroundColor: "var(--bg-accent)",
+                          borderColor: "var(--border-color)",
+                          color: "var(--text-primary)",
+                        }}
+                        placeholder="What's this about?"
+                      />
+                    </div>
+
+                    <div>
+                      <label
+                        htmlFor="message"
+                        className="block text-sm font-medium mb-2"
+                        style={{ color: "var(--text-secondary)" }}
+                      >
+                        Message
+                      </label>
+                      <textarea
+                        id="message"
+                        name="message"
+                        required
+                        rows={6}
+                        className="w-full px-4 py-3 rounded-lg border transition-colors duration-200 focus:outline-none focus:ring-2 resize-none"
+                        style={{
+                          backgroundColor: "var(--bg-accent)",
+                          borderColor: "var(--border-color)",
+                          color: "var(--text-primary)",
+                        }}
+                        placeholder="Your message..."
+                      />
+                    </div>
+
+                    <button
+                      type="submit"
+                      className="w-full px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2"
+                      style={{
+                        backgroundColor: "var(--accent-primary)",
+                        color: "#ffffff",
+                        boxShadow: "var(--shadow-color) 0 4px 6px -1px",
+                      }}
+                    >
+                      Send Message
+                    </button>
+                  </form>
+
+                  <div className="mt-8 pt-6 border-t text-center" style={{ borderColor: "var(--border-color)" }}>
+                    <p className="text-sm mb-4" style={{ color: "var(--text-muted)" }}>
+                      Prefer direct contact?
+                    </p>
+                    <div className="flex justify-center space-x-4">
+                      <a
+                        href="tel:347-463-1026"
+                        className="flex items-center justify-center w-12 h-12 rounded-lg transition-all duration-200 hover:scale-110"
+                        style={{
+                          backgroundColor: "var(--contact-bg)",
+                          color: "var(--text-primary)"
+                        }}
+                        title="Call: 347-463-1026"
+                      >
+                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                        </svg>
+                      </a>
+
+                      <a
+                        href="mailto:chuan.lin.cl@gmail.com"
+                        className="flex items-center justify-center w-12 h-12 rounded-lg transition-all duration-200 hover:scale-110"
+                        style={{
+                          backgroundColor: "var(--contact-bg)",
+                          color: "var(--text-primary)"
+                        }}
+                        title="Email: chuan.lin.cl@gmail.com"
+                      >
+                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </section>
             </div>
           </div>
         </div>
-
-
       </section>
 
       {/* Back to Top Button - Now visible on all screen sizes */}
@@ -392,7 +471,8 @@ export default function Home() {
           style={{
             backgroundColor: "var(--accent-primary)",
             color: "#ffffff",
-            boxShadow: "var(--shadow-color) 0 10px 15px -3px, var(--shadow-color) 0 4px 6px -2px",
+            boxShadow:
+              "var(--shadow-color) 0 10px 15px -3px, var(--shadow-color) 0 4px 6px -2px",
           }}
           aria-label="Back to top"
           title="Back to top"

@@ -38,21 +38,14 @@ export default function Navbar() {
     return () => observer.disconnect()
   }, [])
 
-  const navigateToPage = (page: string) => {
+  const scrollToSection = (sectionId: string) => {
     // Close menu first
     setIsMobileMenuOpen(false)
 
-    // Navigate to different pages using Next.js router
-    if (page === 'home') {
-      router.push('/')
-    } else if (page === 'about') {
-      router.push('/about')
-    } else if (page === 'projects') {
-      router.push('/projects')
-    } else if (page === 'resume') {
-      router.push('/resume')
-    } else if (page === 'contact') {
-      router.push('/contact')
+    // Smooth scroll to section
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
     }
   }
 
@@ -132,7 +125,7 @@ export default function Navbar() {
               {/* Navigation Links */}
               <nav className="space-y-4">
                 <button
-                  onClick={() => navigateToPage('home')}
+                  onClick={() => scrollToSection('home')}
                   className="w-full text-left px-4 py-3 rounded-lg transition-all duration-200 hover:scale-105 font-medium"
                   style={{
                     color: 'var(--text-primary)',
@@ -143,7 +136,7 @@ export default function Navbar() {
                 </button>
 
                 <button
-                  onClick={() => navigateToPage('about')}
+                  onClick={() => scrollToSection('about')}
                   className="w-full text-left px-4 py-3 rounded-lg transition-all duration-200 hover:scale-105 font-medium"
                   style={{
                     color: 'var(--text-primary)',
@@ -154,7 +147,7 @@ export default function Navbar() {
                 </button>
 
                 <button
-                  onClick={() => navigateToPage('projects')}
+                  onClick={() => scrollToSection('projects')}
                   className="w-full text-left px-4 py-3 rounded-lg transition-all duration-200 hover:scale-105 font-medium"
                   style={{
                     color: 'var(--text-primary)',
@@ -165,7 +158,7 @@ export default function Navbar() {
                 </button>
 
                 <button
-                  onClick={() => navigateToPage('resume')}
+                  onClick={() => scrollToSection('resume')}
                   className="w-full text-left px-4 py-3 rounded-lg transition-all duration-200 hover:scale-105 font-medium"
                   style={{
                     color: 'var(--text-primary)',
@@ -176,7 +169,7 @@ export default function Navbar() {
                 </button>
 
                 <button
-                  onClick={() => navigateToPage('contact')}
+                  onClick={() => scrollToSection('contact')}
                   className="w-full text-left px-4 py-3 rounded-lg transition-all duration-200 hover:scale-105 font-medium"
                   style={{
                     color: 'var(--text-primary)',
