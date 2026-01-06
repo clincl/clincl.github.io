@@ -4,14 +4,14 @@
 export const portfolioContent = {
   // Professional Summary (used in About component)
   summary: {
-    title: "👨‍💻 Professional Summary",
+    title: "Professional Summary",
     content:
       "I'm a Software Engineer with nearly 4 years of experience at AWS with a background in technical support and full-stack engineering roles.",
   },
 
   // Core Skills (used in About component)
   skills: {
-    title: "🛠️ Core Skills",
+    title: "Core Skills",
     categories: {
       languages: {
         title: "Languages",
@@ -89,13 +89,13 @@ export const portfolioContent = {
 
   // Projects (used in Projects component)
   projects: {
-    title: "🚀 My Projects",
+    title: "My Projects",
     subtitle:
       "From production-ready applications to innovative concepts - showcasing expertise in real-time systems, AI integration, and scalable architectures",
     items: [
       {
         id: "pantry-chef",
-        title: "🍳 Pantry Chef",
+        title: "Pantry Chef",
         subtitle: "AI-Powered Recipe Generator",
         status: "Production Ready",
         description:
@@ -117,7 +117,7 @@ export const portfolioContent = {
       },
       {
         id: "bouldering-ai",
-        title: "🤖 Bouldering AI Analysis",
+        title: "Bouldering AI Analysis",
         subtitle: "Climbing Technique Analyzer",
         status: "Live Demo",
         description:
@@ -139,7 +139,7 @@ export const portfolioContent = {
       },
       {
         id: "anime-recommendation",
-        title: "🎌 Anime Recommendation Engine",
+        title: "Anime Recommendation Engine",
         subtitle: "AI-Powered Discovery Platform",
         status: "Live Application",
         description:
@@ -161,7 +161,7 @@ export const portfolioContent = {
       },
       {
         id: "ecommerce-platform",
-        title: "🛍️ E-commerce Platform",
+        title: "E-commerce Platform",
         subtitle: "Enterprise Shopping Solution",
         status: "Production Deployed",
         description:
@@ -183,7 +183,7 @@ export const portfolioContent = {
       },
       {
         id: "analytics-dashboard",
-        title: "📊 Real-Time Analytics Dashboard",
+        title: "Real-Time Analytics Dashboard",
         subtitle: "Live Data Visualization",
         status: "Live System",
         description:
@@ -205,7 +205,7 @@ export const portfolioContent = {
       },
       {
         id: "trello-clone",
-        title: "📋 Trello Clone",
+        title: "Trello Clone",
         subtitle: "Collaborative Project Management",
         status: "Live Application",
         description:
@@ -230,7 +230,7 @@ export const portfolioContent = {
 
   // Technologies Section (used in Projects component)
   technologies: {
-    title: "🛠️ Technologies",
+    title: "Technologies",
     items: [
       { name: "Java", icon: "/java-logo.svg", color: "bg-sky-blue" },
       { name: "Spring Boot", icon: "/spring-logo.svg", color: "bg-denim-navy" },
@@ -281,7 +281,7 @@ export const portfolioContent = {
 
   // Contact Information (used in About component)
   contact: {
-    title: "📞 Get In Touch",
+    title: "Get In Touch",
     email: "chuan.lin.cl@gmail.com",
     phone: "347-463-1026",
     linkedin: "https://linkedin.com/in/yourprofile",

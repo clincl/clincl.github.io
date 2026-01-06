@@ -35,44 +35,6 @@ export default function About() {
             </p>
           </div>
 
-          {/* Core Skills */}
-          <div
-            className="p-8 rounded-xl mb-8"
-            style={{
-              backgroundColor: "var(--card-bg)",
-            }}
-          >
-            <h3
-              className="text-2xl font-bold mb-6"
-              style={{ color: "var(--text-primary)" }}
-            >
-              {portfolioContent.skills.title}
-            </h3>
-            <div className="grid md:grid-cols-3 gap-6">
-              {Object.entries(portfolioContent.skills.categories).map(([key, category]) => (
-                <div key={key}>
-                  <h4
-                    className="text-lg font-semibold mb-3"
-                    style={{ color: "var(--text-primary)" }}
-                  >
-                    {category.title}
-                  </h4>
-                  <ul className="space-y-2">
-                    {category.items.map((item, index) => (
-                      <li
-                        key={index}
-                        className="text-sm"
-                        style={{ color: "var(--text-secondary)" }}
-                      >
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </div>
-
           {/* Experience */}
           <div
             className="p-8 rounded-xl mb-8"
