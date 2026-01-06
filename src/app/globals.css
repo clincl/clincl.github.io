@@ -94,3 +94,12 @@ code, pre, .font-mono {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent-secondary);
 }
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: colors 0.2s ease;
+  background-color: var(--bg-accent);
+  color: var(--text-primary);
+}

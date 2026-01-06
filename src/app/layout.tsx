@@ -4,7 +4,7 @@ import "./globals.css";
 
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "600", "700"],
   variable: "--font-poppins",
 });
 
@@ -74,7 +74,26 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                const theme = localStorage.getItem('theme');
+                if (theme === 'dark') {
+                  document.documentElement.classList.add('dark-theme');
+                } else {
+                  document.documentElement.classList.add('light-theme');
+                }
+              } catch (e) {
+                // Fallback to light theme if localStorage is not available
+                document.documentElement.classList.add('light-theme');
+              }
+            `,
+          }}
+        />
+      </head>
       <body className="antialiased">
         {children}
       </body>

@@ -1,84 +1,61 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
+
+type ThemeState = 'loading' | 'light' | 'dark'
 
 export default function ThemeToggle() {
-  // Initialize state with a function to avoid calling setState in effect
-  const [isDark, setIsDark] = useState(() => {
-    // Check if we're in the browser environment
-    if (typeof window !== 'undefined') {
-      const savedTheme = localStorage.getItem('theme')
-      // Check if dark theme is currently applied to document
-      const isCurrentlyDark = document.documentElement.classList.contains('dark-theme')
-      // Use dark theme if explicitly saved OR currently applied
-      return savedTheme === 'dark' || isCurrentlyDark
-    }
-    return false // Default to light theme on server
-  })
+  const [themeState, setThemeState] = useState<ThemeState>('loading')
 
+  // Apply theme on mount
   useEffect(() => {
-    // Apply the theme to the document - ensure only one theme class is active
-    document.documentElement.classList.remove('light-theme', 'dark-theme')
-
-    if (isDark) {
-      document.documentElement.classList.add('dark-theme')
-    } else {
-      document.documentElement.classList.add('light-theme')
-    }
-  }, [isDark])
-
-  // Apply initial theme on mount (in case the lazy initial state didn't work)
-  useEffect(() => {
-    // Always ensure we have exactly one theme class
     const savedTheme = localStorage.getItem('theme')
-    // Only use dark theme if explicitly saved, otherwise default to light
     const shouldBeDark = savedTheme === 'dark'
 
-    // Remove any existing theme classes first
+    // Apply the correct theme class to DOM
     document.documentElement.classList.remove('light-theme', 'dark-theme')
-
     if (shouldBeDark) {
       document.documentElement.classList.add('dark-theme')
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      setThemeState('dark')
     } else {
       document.documentElement.classList.add('light-theme')
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      setThemeState('light')
     }
   }, [])
 
   const toggleTheme = () => {
-    const newIsDark = !isDark
-    setIsDark(newIsDark)
+    const newIsDark = themeState === 'dark'
+    const newThemeState: ThemeState = newIsDark ? 'light' : 'dark'
 
-    // Apply theme immediately - ensure only one theme class is active
+    // Apply theme to DOM
     document.documentElement.classList.remove('light-theme', 'dark-theme')
 
-    if (newIsDark) {
+    if (!newIsDark) {
       document.documentElement.classList.add('dark-theme')
       localStorage.setItem('theme', 'dark')
-      console.log('Switched to dark theme')
     } else {
       document.documentElement.classList.add('light-theme')
       localStorage.setItem('theme', 'light')
-      console.log('Switched to light theme')
     }
+
+    setThemeState(newThemeState)
   }
 
   return (
     <button
       onClick={toggleTheme}
-      className="p-2 rounded-lg transition-colors duration-200"
-      style={{
-        backgroundColor: 'var(--bg-accent)',
-        color: 'var(--text-primary)'
-      }}
+      className="theme-toggle-btn"
       aria-label="Toggle theme"
     >
-      {isDark ? (
-        // Sun icon for light mode
+      {themeState === 'dark' ? (
+        // Sun icon for dark mode (click to go light)
         <svg className="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
           <path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd" />
         </svg>
       ) : (
-        // Moon icon for dark mode
+        // Moon icon for light mode (click to go dark)
         <svg className="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
           <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
         </svg>
