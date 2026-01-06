@@ -60,27 +60,49 @@ export default function Navbar() {
     }}>
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex justify-between items-center py-4">
-          {/* Logo/Name */}
+          {/* Logo */}
           <div className="text-2xl font-bold">
             <Link
               href="/"
-              className="transition-colors duration-300"
+              className="transition-colors duration-300 flex items-center"
               style={{ color: 'var(--navbar-text)' }}
             >
-              Chuan Lin
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                fill="none"
+                className="mr-2"
+                style={{ color: 'var(--navbar-text)' }}
+              >
+                <rect
+                  x="4"
+                  y="4"
+                  width="24"
+                  height="24"
+                  rx="4"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  fill="none"
+                />
+                <text
+                  x="16"
+                  y="22"
+                  textAnchor="middle"
+                  fontSize="16"
+                  fontWeight="bold"
+                  fill="currentColor"
+                  fontFamily="system-ui, sans-serif"
+                >
+                  CL
+                </text>
+              </svg>
+              <span className="hidden sm:inline">Chuan Lin</span>
             </Link>
           </div>
 
           {/* Desktop Navigation Links */}
           <div className="hidden md:flex space-x-8">
-            <button
-              onClick={() => scrollToSection('home')}
-              className="transition-colors duration-300 font-medium hover:opacity-80"
-              style={{ color: 'var(--navbar-text)' }}
-            >
-              Home
-            </button>
-
             <button
               onClick={() => scrollToSection('about')}
               className="transition-colors duration-300 font-medium hover:opacity-80"
@@ -157,17 +179,6 @@ export default function Navbar() {
 
           {/* Navigation Links */}
           <nav className="flex-1 px-6 py-8 space-y-4">
-            <button
-              onClick={() => scrollToSection('home')}
-              className="w-full text-left px-4 py-3 rounded-lg transition-all duration-200 hover:scale-105 font-medium"
-              style={{
-                color: 'var(--text-primary)',
-                backgroundColor: 'var(--bg-accent)'
-              }}
-            >
-              Home
-            </button>
-
             <button
               onClick={() => scrollToSection('about')}
               className="w-full text-left px-4 py-3 rounded-lg transition-all duration-200 hover:scale-105 font-medium"
