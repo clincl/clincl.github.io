@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
-import { Lato, Fira_Code } from "next/font/google";
+import { DotGothic16, Space_Mono } from "next/font/google";
 import "./globals.css";
 
-const lato = Lato({
+const dotGothic16 = DotGothic16({
   subsets: ["latin"],
-  weight: ["300", "400", "700"],
-  variable: "--font-lato",
+  weight: ["400"],
+  variable: "--font-dot-gothic",
 });
 
-const firaCode = Fira_Code({
+const spaceMono = Space_Mono({
   subsets: ["latin"],
-  variable: "--font-fira-code",
+  weight: ["400", "700"],
+  variable: "--font-space-mono",
 });
 
 export const metadata: Metadata = {
