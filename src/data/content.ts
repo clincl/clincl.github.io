@@ -2,25 +2,6 @@
 // This file contains all text content for easy editing and maintenance
 
 export const portfolioContent = {
-  // Core Skills (used in About component)
-  skills: {
-    title: "Core Skills",
-    categories: {
-      languages: {
-        title: "Languages",
-        items: ["Java", "TypeScript", "Python"],
-      },
-      backend: {
-        title: "Backend",
-        items: ["Spring Boot", "Node.js", "PostgreSQL", "Redis"],
-      },
-      cloud: {
-        title: "Cloud",
-        items: ["AWS", "Docker", "Kubernetes"],
-      },
-    },
-  },
-
   // Experience (used in About component)
   experience: {
     title: "Experience",
@@ -33,13 +14,8 @@ export const portfolioContent = {
         status: "Current",
         logo: "/aws-logo.svg",
         description:
-          "Developing CloudFormation-deployed full-stack applications with React, Node.js, and TypeScript. Leading migration of schemaless DynamoDB tables to S3 using automated conversion and seeding pipelines. Collaborating with cross-functional teams to improve system reliability and performance.",
-        achievements: [
-          "Led migration of 15+ DynamoDB tables to S3 with automated pipelines",
-          "Improved system reliability and performance through cross-functional collaboration",
-          "Built full-stack applications with modern React/Node.js/TypeScript stack",
-          "Implemented CloudFormation infrastructure as code solutions",
-        ],
+          "Worked at AWS Kaizen Labs, building and maintaining tools for Enterprise Support.",
+        achievements: [],
         technologies: [
           "React",
           "Node.js",
@@ -57,13 +33,8 @@ export const portfolioContent = {
         status: "Previous",
         logo: "/aws-logo.svg",
         description:
-          "Specialized in database performance tuning and query optimization for RDS PostgreSQL and Oracle. Built automation tools that reduced manual processes by 70%. Mentored junior engineers and maintained 100% Customer Satisfaction (CSAT) rating.",
-        achievements: [
-          "Optimized database performance for RDS PostgreSQL and Oracle",
-          "Built automation tools reducing manual processes by 70%",
-          "Maintained 100% Customer Satisfaction (CSAT) rating",
-          "Mentored junior engineers in database troubleshooting",
-        ],
+          "Worked on the Database team to address tickets related to RDS Postgres, RDS Oracle, Database Migration Services, and more.",
+        achievements: [],
         technologies: ["PostgreSQL", "Oracle", "AWS RDS", "Automation Tools"],
       },
       {
@@ -271,14 +242,4 @@ export const portfolioContent = {
       },
     ],
   },
-
-  // Contact Information (used in About component)
-  contact: {
-    title: "Get In Touch",
-    email: "chuan.lin.cl@gmail.com",
-    phone: "347-463-1026",
-    linkedin: "https://linkedin.com/in/yourprofile",
-    github: "https://github.com/yourusername",
-  },
-
 } as const;

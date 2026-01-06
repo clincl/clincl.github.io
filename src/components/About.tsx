@@ -4,7 +4,7 @@ export default function About() {
   return (
     <div className="p-8">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
+        <div className="text-center mb-6">
           <h2
             className="text-3xl font-bold"
             style={{ color: "var(--text-primary)" }}
@@ -16,7 +16,7 @@ export default function About() {
         <div className="max-w-4xl mx-auto">
           {/* Introduction */}
           <div
-            className="p-8 rounded-xl mb-2"
+            className="p-8 rounded-xl mb-1"
             style={{
               backgroundColor: "var(--card-bg)",
             }}
@@ -55,7 +55,7 @@ export default function About() {
             }}
           >
             <h3
-              className="text-2xl font-bold mb-8"
+              className="text-2xl font-bold mb-4"
               style={{ color: "var(--text-primary)" }}
             >
               {portfolioContent.experience.title}

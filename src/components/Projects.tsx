@@ -64,23 +64,13 @@ export default function Projects() {
                   className="p-6"
                   style={{ backgroundColor: "var(--bg-accent)" }}
                 >
-                  <div className="flex justify-between items-start mb-4">
+                  <div className="mb-4">
                     <h4
                       className="text-2xl font-bold"
                       style={{ color: "var(--text-primary)" }}
                     >
                       {project.title}
                     </h4>
-                    <span
-                      className="px-3 py-1 rounded-full text-sm font-medium"
-                      style={{
-                        backgroundColor: "var(--project-status-bg)",
-                        color:
-                          "var(--project-status-text, var(--text-primary))",
-                      }}
-                    >
-                      {project.status}
-                    </span>
                   </div>
                   <h5
                     className="text-lg mb-2"
