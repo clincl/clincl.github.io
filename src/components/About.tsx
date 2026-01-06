@@ -6,27 +6,19 @@ export default function About() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h2
-            className="text-3xl font-bold mb-4"
+            className="text-3xl font-bold"
             style={{ color: "var(--text-primary)" }}
           >
             About
           </h2>
-          <p
-            className="text-lg max-w-2xl mx-auto"
-            style={{ color: "var(--text-secondary)" }}
-          >
-            Learn more about my background, skills, and professional journey
-          </p>
         </div>
 
         <div className="max-w-4xl mx-auto">
           {/* Professional Summary */}
           <div
-            className="p-8 rounded-xl shadow-lg mb-8"
+            className="p-8 rounded-xl mb-8"
             style={{
               backgroundColor: "var(--card-bg)",
-              boxShadow:
-                "var(--shadow-color) 0 10px 15px -3px, var(--shadow-color) 0 4px 6px -2px",
             }}
           >
             <h3
@@ -45,11 +37,9 @@ export default function About() {
 
           {/* Core Skills */}
           <div
-            className="p-8 rounded-xl shadow-lg mb-8"
+            className="p-8 rounded-xl mb-8"
             style={{
               backgroundColor: "var(--card-bg)",
-              boxShadow:
-                "var(--shadow-color) 0 10px 15px -3px, var(--shadow-color) 0 4px 6px -2px",
             }}
           >
             <h3
@@ -71,15 +61,9 @@ export default function About() {
                     {category.items.map((item, index) => (
                       <li
                         key={index}
-                        className="flex items-center"
+                        className="text-sm"
                         style={{ color: "var(--text-secondary)" }}
                       >
-                        <span
-                          className={`w-2 h-2 rounded-full mr-3 flex-shrink-0 ${
-                            key === 'languages' ? 'bg-blue-500' :
-                            key === 'backend' ? 'bg-green-500' : 'bg-orange-500'
-                          }`}
-                        ></span>
                         {item}
                       </li>
                     ))}
@@ -91,11 +75,9 @@ export default function About() {
 
           {/* Experience */}
           <div
-            className="p-8 rounded-xl shadow-lg mb-8"
+            className="p-8 rounded-xl mb-8"
             style={{
               backgroundColor: "var(--card-bg)",
-              boxShadow:
-                "var(--shadow-color) 0 10px 15px -3px, var(--shadow-color) 0 4px 6px -2px",
             }}
           >
             <h3
