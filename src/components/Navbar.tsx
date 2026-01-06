@@ -52,7 +52,7 @@ export default function Navbar() {
     } else if (page === 'resume') {
       router.push('/resume')
     } else if (page === 'contact') {
-      router.push('/#contact')
+      router.push('/contact')
     }
   }
 
