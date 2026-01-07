@@ -28,7 +28,7 @@ export default function Projects() {
   const projects = portfolioContent.projects.items;
 
   return (
-    <div className="p-8">
+    <div className="p-4 md:p-8">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h2

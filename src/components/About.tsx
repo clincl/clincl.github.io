@@ -2,7 +2,7 @@ import { portfolioContent } from "@/data/content";
 
 export default function About() {
   return (
-    <div className="p-8">
+    <div className="p-4 md:p-8">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-6">
           <h2
