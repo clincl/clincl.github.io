@@ -85,11 +85,11 @@ export default function Home() {
         className="lg:py-20 py-0 transition-colors duration-300"
         style={{ backgroundColor: "var(--bg-secondary)" }}
       >
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Left Side - Combined Profile & Contact */}
             <div className="lg:col-span-1">
-              <div className="sticky top-4 md:top-24">
+              <div>
                 <div
                   className="rounded-xl shadow-lg p-6 transition-colors duration-300"
                   style={{
@@ -206,7 +206,7 @@ export default function Home() {
               {/* About Section */}
               <section id="about" className="scroll-mt-24">
                 <div
-                  className="rounded-xl shadow-lg overflow-hidden transition-colors duration-300"
+                  className="rounded-xl shadow-lg overflow-hidden transition-colors duration-300 p-4 md:p-0"
                   style={{
                     backgroundColor: "var(--card-bg)",
                     boxShadow:
@@ -220,7 +220,7 @@ export default function Home() {
               {/* Projects Section */}
               <section id="projects" className="scroll-mt-24">
                 <div
-                  className="rounded-xl shadow-lg overflow-hidden transition-colors duration-300"
+                  className="rounded-xl shadow-lg overflow-hidden transition-colors duration-300 p-4 md:p-0"
                   style={{
                     backgroundColor: "var(--card-bg)",
                     boxShadow:
@@ -241,7 +241,7 @@ export default function Home() {
                       "var(--shadow-color) 0 10px 15px -3px, var(--shadow-color) 0 4px 6px -2px",
                   }}
                 >
-                  <div className="p-8">
+                  <div className="p-4 md:p-8">
                     <div className="max-w-6xl mx-auto">
                       {/* Resume Header */}
                       <div className="text-center mb-8">
