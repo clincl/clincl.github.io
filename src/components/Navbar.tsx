@@ -31,7 +31,7 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="w-full z-50 transition-all duration-300 backdrop-blur-sm md:fixed md:top-0" style={{
+    <nav className="w-full z-[100] transition-all duration-300 backdrop-blur-sm md:fixed md:top-0 md:z-50" style={{
       backgroundColor: 'var(--navbar-bg)',
       boxShadow: isScrolled ? 'var(--shadow-color) 0 10px 15px -3px, var(--shadow-color) 0 4px 6px -2px' : 'none'
     }}>
@@ -117,8 +117,11 @@ export default function Navbar() {
             <div className="md:hidden">
               <button
                 onClick={toggleMobileMenu}
-                className="p-2 transition-colors duration-300"
-                style={{ color: 'var(--navbar-text)' }}
+                className="p-2 rounded-lg transition-all duration-300 hover:bg-opacity-20"
+                style={{
+                  color: 'var(--text-primary)',
+                  backgroundColor: 'var(--contact-bg)'
+                }}
                 aria-label="Toggle mobile menu"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -131,7 +134,7 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Menu Dropdown */}
-      <div className={`md:hidden absolute top-full right-0 mt-2 w-64 z-40 transform transition-all duration-300 ease-in-out ${
+      <div className={`md:hidden absolute top-full right-0 mt-2 w-64 z-[200] transform transition-all duration-300 ease-in-out ${
         isMobileMenuOpen ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 -translate-y-2 scale-95 pointer-events-none'
       }`} style={{
         backgroundColor: 'var(--card-bg)',
