@@ -31,7 +31,7 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="fixed top-0 w-full z-50 transition-all duration-300 backdrop-blur-sm" style={{
+    <nav className="w-full z-50 transition-all duration-300 backdrop-blur-sm md:fixed md:top-0" style={{
       backgroundColor: 'var(--navbar-bg)',
       boxShadow: isScrolled ? 'var(--shadow-color) 0 10px 15px -3px, var(--shadow-color) 0 4px 6px -2px' : 'none'
     }}>

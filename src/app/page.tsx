@@ -89,7 +89,7 @@ export default function Home() {
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Left Side - Combined Profile & Contact */}
             <div className="lg:col-span-1">
-              <div className="sticky top-32 md:top-24">
+              <div className="sticky top-4 md:top-24">
                 <div
                   className="rounded-xl shadow-lg p-6 transition-colors duration-300"
                   style={{
